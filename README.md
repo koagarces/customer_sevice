@@ -24,6 +24,6 @@
 
 ## Resources
 
-### [Trello Board](/https://trello.com/b/Oaz1Q67S) 
-### [LucidChart](/https://lucid.app/lucidchart/599c9404-9946-4b14-beac-de532d9d65ae/edit?invitationId=inv_6760f9e2-39fe-43b3-8683-9123bfe9a023)
-### [ERD](/https://drive.google.com/file/d/1s-Nvl6d2vUkUM_NtNiSuuFTXwLq8krX2/view?usp=sharing)
+### [Trello Board] (https://trello.com/b/Oaz1Q67S) 
+### [LucidChart] (https://lucid.app/lucidchart/599c9404-9946-4b14-beac-de532d9d65ae/edit?invitationId=inv_6760f9e2-39fe-43b3-8683-9123bfe9a023)
+### [ERD] (https://drive.google.com/file/d/1s-Nvl6d2vUkUM_NtNiSuuFTXwLq8krX2/view?usp=sharing)
