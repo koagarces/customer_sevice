@@ -1,5 +1,5 @@
 const db = require('../db');
-const { Movie, Review } = require('../models');
+const { Review } = require('../models');
 
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -9,9 +9,19 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 const main = async () => {
 
 
-    const reviews = [
-        {
+    const reviews = []
 
-        }
-    ]
+    await Review.insertMany(reviews)
+    console.log('Created reviews!')
+
+    const run = async () => {
+        await main()
+        db.close()
+    }
+
+    run()
+
 }
+
+
+
