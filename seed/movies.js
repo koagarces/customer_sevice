@@ -1,5 +1,5 @@
 const db = require('../db');
-const { Movie } = require('../models');
+const { Movie, Require } = require('../models');
 
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -12,6 +12,7 @@ const main = async () => {
             trilogy: 'Prequel Trilogy',
             name: 'Episode I - The Phantom Menace',
             releaseYear: '1999',
+            ref: Review,
         },
         {
             trilogy: 'Prequel Trilogy',

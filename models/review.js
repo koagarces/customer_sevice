@@ -2,9 +2,9 @@ const { Schema } = require('mongoose')
 
 const Review = new Schema(
     {
-        Rating: { type: Number },
-        User: { type: String, },
-        Comment: { type: String, },
+        rating: { type: Number },
+        user: { type: String, },
+        comment: { type: String, },
     },
     { timestamps: true })
 
