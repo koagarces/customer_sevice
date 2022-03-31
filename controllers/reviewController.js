@@ -24,10 +24,10 @@ const GetReviews = async (req, res) => {
 
 const DeleteReview = async (req, res) => {
   try {
-    const { _id } = req.params;
+    const { _id } = req.body;
     const deleted = await Review.findByIdAndDelete(_id);
     if (deleted) {
-      return res.status(200).send("Review");
+      return res.status(200).send("Deleted Review");
     }
     throw new Error("review does not exist");
   } catch (error) {
@@ -35,8 +35,20 @@ const DeleteReview = async (req, res) => {
   }
 };
 
+const UpdateReview = async (req, res) => {
+  try {
+    const review = await Review.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    res.json(review);
+  } catch (error) {
+    res.send(error.message);
+  }
+};
+
 module.exports = {
   CreateReview,
   GetReviews,
   DeleteReview,
+  UpdateReview,
 };

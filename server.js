@@ -29,6 +29,10 @@ app.post("/movies/review", reviewController.CreateReview);
 /// Delete Routes
 app.delete("/movies/review", reviewController.DeleteReview);
 
+/// UPDATE ROUTES
+
+app.patch("/movies/review/:review_id", reviewController.UpdateReview);
+
 app.get("/*", (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`);
 });
