@@ -16,7 +16,7 @@ app.use(express.static(`${__dirname}/client/build`));
 
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-app.get("/movies/reviews", reviewController.GetReviews);
+app.get("/movies/review", reviewController.GetReviews);
 
 /// GET ROUTES
 app.get("/movies/trilogies/prequels", movieController.getPrequelTrilogy);
@@ -25,6 +25,9 @@ app.get("/movies/trilogies/originals", movieController.getSequelTrilogy);
 
 /// POST ROUTES
 app.post("/movies/review", reviewController.CreateReview);
+
+/// Delete Routes
+app.delete("/movies/review", reviewController.DeleteReview);
 
 app.get("/*", (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`);
