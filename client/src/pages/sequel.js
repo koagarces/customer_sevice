@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../globals";
 import "../App.css";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Sequel = () => {
   const [movies, setMovie] = useState([]);
