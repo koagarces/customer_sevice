@@ -19,7 +19,9 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 app.get("/reviews", reviewController.GetReview);
 // app.get("/movies/prequels", movieController.getPrequelMovies);
 
-app.get("/movies/trilogies", movieController.getPrequelTrilogy);
+app.get("/movies/trilogies/prequels", movieController.getPrequelTrilogy);
+app.get("/movies/trilogies/sequels", movieController.getSequelTrilogy);
+app.get("/movies/trilogies/originals", movieController.getSequelTrilogy);
 
 app.get("/*", (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`);

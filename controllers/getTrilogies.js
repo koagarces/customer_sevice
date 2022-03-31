@@ -12,8 +12,19 @@ const getPrequelTrilogy = async (req, res) => {
   res.send(movies);
 };
 
+const getSequelTrilogy = async (req, res) => {
+  const movies = await Movie.find().where("trilogy").equals("Sequel Trilogy");
+  res.send(movies);
+};
+
+const getOriginalTrilogy = async (req, res) => {
+  const movies = await Movie.find().where("trilogy").equals("Original Trilogy");
+  res.send(movies);
+};
+
 module.exports = {
   getMovies,
   getPrequelTrilogy,
-  //   getPrequelMovies,
+  getOriginalTrilogy,
+  getSequelTrilogy,
 };
