@@ -4,14 +4,16 @@ import axios from "axios";
 import { BASE_URL } from "../globals";
 import "../App.css";
 import { useParams } from "react-router-dom";
-import ReviewActions from "../components/Reviews";
+import AddRev from "../components/AddReviews";
 
 const Trilogy = (props) => {
   const trilogyId = props.id;
   const [movies, setMovie] = useState([]);
   const [rev, setRev] = useState([]);
+  const [createRev, setCreateRev] = useState([]);
   useEffect(() => {
     let isCancelled = false;
+
     const getMoviesByTrilogy = async () => {
       const res = await axios.get(
         `${BASE_URL}/movies/trilogies/${encodeURIComponent(trilogyId)}`
@@ -26,6 +28,13 @@ const Trilogy = (props) => {
         setMovie(res.data);
         setRev(reviewRes.data);
       }
+
+      const createReviewsByTrilogy = async () => {
+        const res = await axios.post(
+          `${BASE_URL}/movies/reviews/${encodeURIComponent(trilogyId)}`
+        );
+        setCreateRev(res);
+      };
     };
     getMoviesByTrilogy();
     return () => {
@@ -45,9 +54,17 @@ const Trilogy = (props) => {
           </div>
         ))}
       </ul>
-      {rev.map((review) => (
-        <ReviewActions review={props} />
-      ))}
+      <div>
+        {/* {createRev.map((create) => ( */}
+        <div>
+          <AddRev create={createRev} setCreateRev={setCreateRev} />
+        </div>
+        {/* ))} */}
+        {/* {rev.map((review) => ( */}
+        <div>{rev.comment}</div>
+        {/* ))} */}
+        {/* ))} */}
+      </div>
     </div>
   );
 };

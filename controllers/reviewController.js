@@ -3,16 +3,6 @@ const { Review } = require("../models");
 
 const body = require("body-parser");
 
-const CreateReview = async (req, res) => {
-  try {
-    const review = await new Review(req.body);
-    await review.save();
-    return res.status(201).json({ review });
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
-  }
-};
-
 const GetReviews = async (req, res) => {
   try {
     const reviews = await Review.find();
@@ -56,6 +46,12 @@ const UpdateReview = async (req, res) => {
 //   res.send(reviews);
 // };
 
+const CreateReviewByTrilogyId = async (req, res) => {
+  const trilogyId = req.params.trilogyId;
+  const trilogies = await Review.find().where("trilogyId").equals(trilogyId);
+  await trilogyId.save();
+};
+
 const getReviewsByTrilogyId = async (req, res) => {
   const trilogyId = req.params.trilogyId;
   const trilogies = await Review.find().where("trilogyId").equals(trilogyId);
@@ -68,7 +64,7 @@ const getReviewsByReviewId = async (req, res) => {
   res.send(reviews);
 };
 module.exports = {
-  CreateReview,
+  CreateReviewByTrilogyId,
   GetReviews,
   DeleteReview,
   UpdateReview,

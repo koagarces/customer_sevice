@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "../home.css";
-import "../components/Reviews";
+import "../components/AddReviews";
 const Home = () => {
   return (
     <main>
