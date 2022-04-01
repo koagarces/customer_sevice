@@ -6,25 +6,31 @@ const getMovies = async (req, res) => {
   console.log("gotMovies");
   res.send(gotMovies);
 };
-
-const getPrequelTrilogy = async (req, res) => {
-  const movies = await Movie.find().where("trilogy").equals("Prequel Trilogy");
-  res.send(movies);
+const getTrilogyById = async (req, res) => {
+  const trilogyId = req.params.trilogyId;
+  const trilogies = await Movie.find().where("trilogy").equals(trilogyId);
+  res.send(trilogies);
 };
 
-const getSequelTrilogy = async (req, res) => {
-  const movies = await Movie.find().where("trilogy").equals("Sequel Trilogy");
-  res.send(movies);
-};
+// const getPrequelTrilogy = async (req, res) => {
+//   const movies = await Movie.find().where("trilogy").equals("Prequel Trilogy");
+//   res.send(movies);
+// };
 
-const getOriginalTrilogy = async (req, res) => {
-  const movies = await Movie.find().where("trilogy").equals("Original Trilogy");
-  res.send(movies);
-};
+// const getSequelTrilogy = async (req, res) => {
+//   const movies = await Movie.find().where("trilogy").equals("Sequel Trilogy");
+//   res.send(movies);
+// };
+
+// const getOriginalTrilogy = async (req, res) => {
+//   const movies = await Movie.find().where("trilogy").equals("Original Trilogy");
+//   res.send(movies);
+// };
 
 module.exports = {
   getMovies,
-  getPrequelTrilogy,
-  getOriginalTrilogy,
-  getSequelTrilogy,
+  // getPrequelTrilogy,
+  // getOriginalTrilogy,
+  // getSequelTrilogy,
+  getTrilogyById,
 };

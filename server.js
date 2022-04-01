@@ -16,22 +16,24 @@ app.use(express.static(`${__dirname}/client/build`));
 
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-app.get("/movies/review", reviewController.GetReviews);
+app.get("/api/movies/review", reviewController.GetReviews);
+app.delete("/api/movies/review", reviewController.DeleteReview);
+app.put("/api/movies/review/:reviewId", reviewController.UpdateReview);
 
+app.get("/api/movies/reviews/:movieId", reviewController.getReviewsByMovieId);
+app.get("/api/movies/review/:reviewId", reviewController.getReviewsByMovieId);
 /// GET ROUTES
-app.get("/movies/trilogies/prequels", movieController.getPrequelTrilogy);
-app.get("/movies/trilogies/sequels", movieController.getSequelTrilogy);
-app.get("/movies/trilogies/originals", movieController.getSequelTrilogy);
+// app.get("/api/movies/trilogies/prequels", movieController.getPrequelTrilogy);
+// app.get("/api/movies/trilogies/sequels", movieController.getSequelTrilogy);
+// app.get("/api/movies/trilogies/originals", movieController.getOriginalTrilogy);
+
+app.get("/api/movies/trilogies/:trilogyId", movieController.getTrilogyById);
 
 /// POST ROUTES
-app.post("/movies/review", reviewController.CreateReview);
 
 /// Delete Routes
-app.delete("/movies/review", reviewController.DeleteReview);
 
 /// UPDATE ROUTES
-
-app.patch("/movies/review/:review_id", reviewController.UpdateReview);
 
 app.get("/*", (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`);

@@ -1,14 +1,13 @@
-const { Schema } = require('mongoose')
+const { Schema } = require("mongoose");
 
 const Review = new Schema(
-    {
-        rating: { type: Number },
-        user: { type: String, },
-        comment: { type: String, },
-    },
-    { timestamps: true })
+  {
+    rating: { type: Number },
+    user: { type: String },
+    comment: { type: String },
+    movieId: { type: Number },
+  },
+  { timestamps: true }
+);
 
-
-
-
-module.exports = Review
+module.exports = Review;

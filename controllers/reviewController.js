@@ -37,13 +37,23 @@ const DeleteReview = async (req, res) => {
 
 const UpdateReview = async (req, res) => {
   try {
-    const review = await Review.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
+    const review = await Review.findByIdAndUpdate(
+      req.params.reviewId,
+      req.body,
+      {
+        new: true,
+      }
+    );
     res.json(review);
   } catch (error) {
     res.send(error.message);
   }
+};
+
+const getReviewsByMovieId = async (req, res) => {
+  const movieId = req.params.movieId;
+  const reviews = await Review.find().where("movieId").equals(movieId);
+  res.send(reviews);
 };
 
 module.exports = {
@@ -51,4 +61,5 @@ module.exports = {
   GetReviews,
   DeleteReview,
   UpdateReview,
+  getReviewsByMovieId,
 };

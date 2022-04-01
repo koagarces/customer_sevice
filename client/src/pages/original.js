@@ -12,7 +12,9 @@ const Original = () => {
   useEffect(() => {
     let isCancelled = false;
     const getMoviesByTrilogy = async () => {
-      const res = await axios.get(`${BASE_URL}/movies/trilogies/originals`);
+      const res = await axios.get(
+        `${BASE_URL}/movies/trilogies/Original%20Trilogy`
+      );
       console.log(res.data);
       if (!isCancelled) {
         console.log(res.data);
@@ -24,7 +26,7 @@ const Original = () => {
       isCancelled = true;
     };
   }, [trilogyId]);
-
+  console.log(movies);
   return (
     <div className="this">
       <h1> Original Trilogy</h1>

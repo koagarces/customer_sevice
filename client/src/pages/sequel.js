@@ -11,7 +11,9 @@ const Sequel = () => {
   useEffect(() => {
     let isCancelled = false;
     const getMoviesByTrilogy = async () => {
-      const res = await axios.get(`${BASE_URL}/movies/trilogies/sequels`);
+      const res = await axios.get(
+        `${BASE_URL}/movies/trilogies/Sequel%20Trilogy`
+      );
       console.log(res.data);
       if (!isCancelled) {
         console.log(res.data);
