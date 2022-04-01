@@ -17,7 +17,7 @@ app.use(express.static(`${__dirname}/client/build`));
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.post(
-  "/api/movies/reviews/:trilogyId",
+  "/api/movies/review/:trilogyId",
   reviewController.CreateReviewByTrilogyId
 );
 app.get("/api/movies/review", reviewController.GetReviews);

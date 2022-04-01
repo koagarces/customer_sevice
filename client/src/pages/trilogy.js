@@ -28,15 +28,10 @@ const Trilogy = (props) => {
         setMovie(res.data);
         setRev(reviewRes.data);
       }
-
-      const createReviewsByTrilogy = async () => {
-        const res = await axios.post(
-          `${BASE_URL}/movies/reviews/${encodeURIComponent(trilogyId)}`
-        );
-        setCreateRev(res);
-      };
     };
     getMoviesByTrilogy();
+
+    // createReviewsByTrilogy();
     return () => {
       isCancelled = true;
     };
@@ -55,15 +50,14 @@ const Trilogy = (props) => {
         ))}
       </ul>
       <div>
-        {/* {createRev.map((create) => ( */}
+        {rev.map((create) => (
         <div>
-          <AddRev create={createRev} setCreateRev={setCreateRev} />
+          <AddRev create={} setCreateRev={setCreateRev} />
         </div>
-        {/* ))} */}
-        {/* {rev.map((review) => ( */}
-        <div>{rev.comment}</div>
-        {/* ))} */}
-        {/* ))} */}
+         ))} 
+        {rev.map((review) => (
+          <div>{rev.comment}</div>
+        ))}
       </div>
     </div>
   );

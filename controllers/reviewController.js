@@ -49,7 +49,8 @@ const UpdateReview = async (req, res) => {
 const CreateReviewByTrilogyId = async (req, res) => {
   const trilogyId = req.params.trilogyId;
   const trilogies = await Review.find().where("trilogyId").equals(trilogyId);
-  await trilogyId.save();
+  // trilogyId.save();
+  res.send(trilogies);
 };
 
 const getReviewsByTrilogyId = async (req, res) => {
@@ -59,8 +60,8 @@ const getReviewsByTrilogyId = async (req, res) => {
 };
 
 const getReviewsByReviewId = async (req, res) => {
-  const reviewId = req.params.reviewId;
-  const reviews = await Review.find().where("reviewId").equals(reviewId);
+  const reviewId = req.params._Id;
+  const reviews = await Review.find().where("_Id").equals(reviewId);
   res.send(reviews);
 };
 module.exports = {

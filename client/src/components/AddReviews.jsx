@@ -6,36 +6,33 @@ const AddRev = (props) => {
   const trilogyId = props.id;
   const navigate = useNavigate();
   async function getReviews() {
-    try {
-      let res = await axios.get(
-        `${BASE_URL}/movies/reviews/${encodeURIComponent(trilogyId)}`
-      );
-      props.setCreateRev(res.data.review);
-      // console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
+    let res = await axios.post(
+      `${BASE_URL}/movies/review/${encodeURIComponent(trilogyId)}`
+    );
+    let selectedReviews = [];
+    res.data.reviews.forEach(() => {
+      if (props.reviews.trilogy_id === props.trilogy_id) {
+        selectedReviews.push();
+      }
+    });
+    props.setReviews(selectedReviews);
+    console.log(props.reviews);
   }
+
+  props.setCreateRev(props.res.data.comment);
+  console.log(props.res.data);
+
   getReviews();
 
   return (
-    <div className="workoutTitle">
+    <div className="reviewTitle">
       <h1>Add a Review</h1>
       <form>
         <input type="text" name={"comment"} placeholder={"Make a Comment"} />
         <input type="text" name={"rating"} placeholder={"1-5"} />
-        <input type="text" name={"user"} placeholder={"Name"} />
+        <input type="text" name={"creator"} placeholder={"Name"} />
         <button>Submit</button>
       </form>
-      <button
-        onClick={() =>
-          navigate(
-            `${BASE_URL}/movies/reviews/${encodeURIComponent(trilogyId)}`
-          )
-        }
-      >
-        Back
-      </button>
     </div>
   );
 };
