@@ -33,13 +33,13 @@ const AddRev = (props) => {
       rating,
     });
   };
-  const onClickHandler2 = (props) => {
-    props.deleteHandler({
-      comment,
-      creator,
-      rating,
-    });
-  };
+  // const onClickHandler2 = (props) => {
+  //   props.deleteHandler({
+  //     comment,
+  //     creator,
+  //     rating,
+  //   });
+  // };
 
   return (
     <div className="reviewTitle">

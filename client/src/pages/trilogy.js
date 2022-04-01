@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import AddRev from "../components/AddReviews";
 
 const Trilogy = (props) => {
+  const [reviewId, setReviewId] = useState();
   const trilogyId = props.id;
   const [movies, setMovie] = useState([]);
   const [rev, setRev] = useState([]);
@@ -45,12 +46,11 @@ const Trilogy = (props) => {
     await axios.post(`${BASE_URL}/movies/review`, review);
     await getMoviesByTrilogy();
   };
-  const onClickHandler2 = () => {
-    async (review) => {
-      review.trilogyId = trilogyId;
-      await axios.delete(`${BASE_URL}/movies/review`, review);
-      await getMoviesByTrilogy();
-    };
+  const onClickHandler2 = async (review) => {
+    console.log(review);
+    // review.trilogyId = trilogyId;
+    await axios.delete(`${BASE_URL}/movies/review/${review.target.value}`);
+    await getMoviesByTrilogy();
   };
 
   return (
@@ -66,8 +66,14 @@ const Trilogy = (props) => {
       <div className="review-display">
         {rev.map((review) => (
           <div>
-            "{review.comment}" - {review.creator}, rating: {review.rating}/5
-            <button onClick={onClickHandler2}>Delete</button>
+            "{review.comment}" - {review.creator}, rating: {review.rating}/5,{" "}
+            {review._id}
+            <button
+              value={review._id}
+              onClick={(review) => onClickHandler2(review)}
+            >
+              Delete
+            </button>
           </div>
         ))}
       </div>
