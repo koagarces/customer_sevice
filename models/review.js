@@ -5,7 +5,7 @@ const Review = new Schema(
     rating: { type: Number },
     user: { type: String },
     comment: { type: String },
-    movieId: { type: Number },
+    trilogyId: { type: String },
   },
   { timestamps: true }
 );

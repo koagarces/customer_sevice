@@ -2,8 +2,6 @@ import { NavLink } from "react-router-dom";
 import "../home.css";
 import "../components/Reviews";
 const Home = () => {
-  console.log("yes");
-
   return (
     <main>
       <h1>STAR WARS TRILOGY REVIEW</h1>

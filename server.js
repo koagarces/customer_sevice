@@ -20,8 +20,11 @@ app.get("/api/movies/review", reviewController.GetReviews);
 app.delete("/api/movies/review", reviewController.DeleteReview);
 app.put("/api/movies/review/:reviewId", reviewController.UpdateReview);
 
-app.get("/api/movies/reviews/:movieId", reviewController.getReviewsByMovieId);
-app.get("/api/movies/review/:reviewId", reviewController.getReviewsByMovieId);
+app.get("/api/movies/review/:reviewId", reviewController.getReviewsByReviewId);
+app.get(
+  "/api/movies/reviews/:trilogyId",
+  reviewController.getReviewsByTrilogyId
+);
 /// GET ROUTES
 // app.get("/api/movies/trilogies/prequels", movieController.getPrequelTrilogy);
 // app.get("/api/movies/trilogies/sequels", movieController.getSequelTrilogy);

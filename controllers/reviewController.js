@@ -1,5 +1,5 @@
 const db = require("../db");
-const { Review, _id } = require("../models");
+const { Review } = require("../models");
 
 const body = require("body-parser");
 
@@ -50,16 +50,28 @@ const UpdateReview = async (req, res) => {
   }
 };
 
-const getReviewsByMovieId = async (req, res) => {
-  const movieId = req.params.movieId;
-  const reviews = await Review.find().where("movieId").equals(movieId);
-  res.send(reviews);
+// const getReviewsByMovieId = async (req, res) => {
+//   const movieId = req.params.movieId;
+//   const reviews = await Review.find().where("movieId").equals(movieId);
+//   res.send(reviews);
+// };
+
+const getReviewsByTrilogyId = async (req, res) => {
+  const trilogyId = req.params.trilogyId;
+  const trilogies = await Review.find().where("trilogyId").equals(trilogyId);
+  res.send(trilogies);
 };
 
+const getReviewsByReviewId = async (req, res) => {
+  const reviewId = req.params.reviewId;
+  const reviews = await Review.find().where("reviewId").equals(reviewId);
+  res.send(reviews);
+};
 module.exports = {
   CreateReview,
   GetReviews,
   DeleteReview,
   UpdateReview,
-  getReviewsByMovieId,
+  getReviewsByTrilogyId,
+  getReviewsByReviewId,
 };

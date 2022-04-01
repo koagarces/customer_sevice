@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 const ReviewActions = (props) => {
   return (
     <div className="this">
-      <h1>{props.review}</h1>
+      <h1>{props.trilogyId}this is the component</h1>
       <ul></ul>
     </div>
   );
