@@ -39,11 +39,18 @@ const Trilogy = (props) => {
 
   console.log("movies", movies);
   console.log("rev", rev);
-  const submitHandler = async (review) => {
+  const submitHandlerPost = async (review) => {
     console.log(review);
     review.trilogyId = trilogyId;
     await axios.post(`${BASE_URL}/movies/review`, review);
     await getMoviesByTrilogy();
+  };
+  const onClickHandler2 = () => {
+    async (review) => {
+      review.trilogyId = trilogyId;
+      await axios.delete(`${BASE_URL}/movies/review`, review);
+      await getMoviesByTrilogy();
+    };
   };
 
   return (
@@ -60,12 +67,14 @@ const Trilogy = (props) => {
         {rev.map((review) => (
           <div>
             "{review.comment}" - {review.creator}, rating: {review.rating}/5
+            <button onClick={onClickHandler2}>Delete</button>
           </div>
         ))}
       </div>
       <div className="review-input-form">
-        <AddRev submitHandler={submitHandler} />
+        <AddRev submitHandler={submitHandlerPost} />
       </div>
+      <div className="Delete-input-form">{/* <DeleteReview review={} */}</div>
     </div>
   );
 };

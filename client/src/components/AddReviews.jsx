@@ -33,6 +33,13 @@ const AddRev = (props) => {
       rating,
     });
   };
+  const onClickHandler2 = (props) => {
+    props.deleteHandler({
+      comment,
+      creator,
+      rating,
+    });
+  };
 
   return (
     <div className="reviewTitle">
@@ -60,6 +67,7 @@ const AddRev = (props) => {
         onChange={(v) => setCreator(v.target.value)}
       />
       <button onClick={onClickHandler}>Submit</button>
+
       {/* </form> */}
     </div>
   );
