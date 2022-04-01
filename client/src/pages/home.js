@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
 import "../home.css";
-
+import "../components/Reviews";
 const Home = () => {
   console.log("yes");
 
   return (
     <main>
-      <div>this is the home page</div>
+      <h1>STAR WARS TRILOGY REVIEW</h1>
       <div>
         <NavLink to="/movies/trilogies/prequels" className="navigation">
           Prequel Trilogy

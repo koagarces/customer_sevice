@@ -4,6 +4,7 @@ import axios from "axios";
 import { BASE_URL } from "../globals";
 import "../App.css";
 import { useParams } from "react-router-dom";
+import ReviewActions from "../components/Reviews";
 
 const Original = () => {
   const [movies, setMovie] = useState([]);
@@ -29,7 +30,13 @@ const Original = () => {
       <h1> Original Trilogy</h1>
       <ul>
         {movies.map((movie) => (
-          <li>{movie.name}</li>
+          <div>
+            <li>{movie.name}</li>
+
+            {movie.review.map((review) => (
+              <ReviewActions review={review} />
+            ))}
+          </div>
         ))}
       </ul>
     </div>
