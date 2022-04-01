@@ -57,7 +57,7 @@ const Trilogy = (props) => {
   return (
     <div className="this">
       <h1>{trilogyId}</h1>
-      <ul>
+      <ul className="movieList">
         {movies.map((movie) => (
           <div>
             <li>{movie.name}</li>
