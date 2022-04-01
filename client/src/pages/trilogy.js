@@ -5,6 +5,7 @@ import { BASE_URL } from "../globals";
 import "../App.css";
 import { useParams } from "react-router-dom";
 import AddRev from "../components/AddReviews";
+import UpdateReview from "../components/UpdateReview";
 
 const Trilogy = (props) => {
   const [reviewId, setReviewId] = useState();
@@ -80,7 +81,9 @@ const Trilogy = (props) => {
       <div className="review-input-form">
         <AddRev submitHandler={submitHandlerPost} />
       </div>
-      <div className="Delete-input-form">{/* <DeleteReview review={} */}</div>
+      <div className="">
+        <UpdateReview />
+      </div>
     </div>
   );
 };
