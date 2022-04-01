@@ -3,7 +3,7 @@ const { Schema } = require("mongoose");
 const Review = new Schema(
   {
     rating: { type: Number },
-    user: { type: String },
+    creator: { type: String },
     comment: { type: String },
     trilogyId: { type: String },
   },

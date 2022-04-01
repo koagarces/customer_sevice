@@ -11,24 +11,24 @@ const Trilogy = (props) => {
   const [movies, setMovie] = useState([]);
   const [rev, setRev] = useState([]);
   const [createRev, setCreateRev] = useState([]);
-  useEffect(() => {
-    let isCancelled = false;
-
-    const getMoviesByTrilogy = async () => {
-      const res = await axios.get(
-        `${BASE_URL}/movies/trilogies/${encodeURIComponent(trilogyId)}`
-      );
-      const reviewRes = await axios.get(
-        `${BASE_URL}/movies/reviews/${encodeURIComponent(trilogyId)}`
-      );
-      console.log(reviewRes.data);
+  let isCancelled = false;
+  const getMoviesByTrilogy = async () => {
+    const res = await axios.get(
+      `${BASE_URL}/movies/trilogies/${encodeURIComponent(trilogyId)}`
+    );
+    const reviewRes = await axios.get(
+      `${BASE_URL}/movies/reviews/${encodeURIComponent(trilogyId)}`
+    );
+    console.log(reviewRes.data);
+    console.log(res.data);
+    if (!isCancelled) {
       console.log(res.data);
-      if (!isCancelled) {
-        console.log(res.data);
-        setMovie(res.data);
-        setRev(reviewRes.data);
-      }
-    };
+      setMovie(res.data);
+      setRev(reviewRes.data);
+    }
+  };
+
+  useEffect(() => {
     getMoviesByTrilogy();
 
     // createReviewsByTrilogy();
@@ -36,8 +36,15 @@ const Trilogy = (props) => {
       isCancelled = true;
     };
   }, [trilogyId]);
-  console.log(movies);
-  console.log(rev);
+
+  console.log("movies", movies);
+  console.log("rev", rev);
+  const submitHandler = async (review) => {
+    console.log(review);
+    review.trilogyId = trilogyId;
+    await axios.post(`${BASE_URL}/movies/review`, review);
+    await getMoviesByTrilogy();
+  };
 
   return (
     <div className="this">
@@ -49,15 +56,15 @@ const Trilogy = (props) => {
           </div>
         ))}
       </ul>
-      <div>
-        {rev.map((create) => (
-        <div>
-          <AddRev create={} setCreateRev={setCreateRev} />
-        </div>
-         ))} 
+      <div className="review-display">
         {rev.map((review) => (
-          <div>{rev.comment}</div>
+          <div>
+            "{review.comment}" - {review.creator}, rating: {review.rating}/5
+          </div>
         ))}
+      </div>
+      <div className="review-input-form">
+        <AddRev submitHandler={submitHandler} />
       </div>
     </div>
   );

@@ -46,11 +46,15 @@ const UpdateReview = async (req, res) => {
 //   res.send(reviews);
 // };
 
-const CreateReviewByTrilogyId = async (req, res) => {
-  const trilogyId = req.params.trilogyId;
-  const trilogies = await Review.find().where("trilogyId").equals(trilogyId);
-  // trilogyId.save();
-  res.send(trilogies);
+const CreateReview = async (req, res) => {
+  console.log(req.body);
+  try {
+    await Review.insertMany([req.body]);
+    res.send(200);
+  } catch (e) {
+    res.send(666);
+    console.log(e.message);
+  }
 };
 
 const getReviewsByTrilogyId = async (req, res) => {
@@ -65,7 +69,7 @@ const getReviewsByReviewId = async (req, res) => {
   res.send(reviews);
 };
 module.exports = {
-  CreateReviewByTrilogyId,
+  CreateReview,
   GetReviews,
   DeleteReview,
   UpdateReview,
