@@ -53,7 +53,7 @@ const CreateReview = async (req, res) => {
     await Review.insertMany([req.body]);
     res.send(200);
   } catch (e) {
-    res.send(666);
+    res.sendStatus(666);
     console.log(e.message);
   }
 };

@@ -6,6 +6,7 @@ const Review = new Schema(
     creator: { type: String },
     comment: { type: String },
     trilogyId: { type: String },
+    reviewsId: { type: String },
   },
   { timestamps: true }
 );
