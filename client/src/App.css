@@ -3,9 +3,9 @@
    height: 300px;
    background-color: lightblue;
  } */
-/* .body {
-  background-image: url("https://cdn.pixabay.com/photo/2012/02/25/19/11/nightsky-16967_1280.jpg");
-} */
+.body {
+  background-color: aliceblue;
+}
 
 .this {
   width: 100px;
