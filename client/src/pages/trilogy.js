@@ -5,7 +5,7 @@ import { BASE_URL } from "../globals";
 import "../App.css";
 import { useParams } from "react-router-dom";
 import LeaveReview from "../components/LeaveReviews";
-
+import "./trilogy.css";
 const Trilogy = (props) => {
   const trilogyId = props.id;
   const [movies, setMovie] = useState([]);
