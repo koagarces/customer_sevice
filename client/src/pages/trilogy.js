@@ -66,6 +66,7 @@ const Trilogy = (props) => {
         display: "flex",
         padding: 60,
         margin: 50,
+        backgroundColor: "aliceblue",
         // flexWrap: "wrap",
         // alignItems: "center",
         // justifyContent: "center",
@@ -79,6 +80,7 @@ const Trilogy = (props) => {
             style={{
               justifyContent: "center",
               margin: 40,
+              backgroundColor: "aliceblue",
             }}
           >
             <li>{movie.name}</li>
@@ -92,6 +94,7 @@ const Trilogy = (props) => {
             style={{
               justifyContent: "center",
               margin: 40,
+              backgroundColor: "aliceblue",
             }}
           >
             "{review.comment}" - {review.creator}, rating: {review.rating}/5,{" "}
