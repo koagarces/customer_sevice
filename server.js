@@ -26,18 +26,8 @@ app.get(
   "/api/movies/reviews/:trilogyId",
   reviewController.getReviewsByTrilogyId
 );
-/// GET ROUTES
-// app.get("/api/movies/trilogies/prequels", movieController.getPrequelTrilogy);
-// app.get("/api/movies/trilogies/sequels", movieController.getSequelTrilogy);
-// app.get("/api/movies/trilogies/originals", movieController.getOriginalTrilogy);
 
 app.get("/api/movies/trilogies/:trilogyId", movieController.getTrilogyById);
-
-/// POST ROUTES
-
-/// Delete Routes
-
-/// UPDATE ROUTES
 
 app.get("/*", (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`);
