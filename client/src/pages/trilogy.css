@@ -1,9 +1,14 @@
 li {
   display: flex;
   justify-content: space-between;
-  padding: 80px;
+  padding: 30px;
 }
 
-.this {
+h1 {
+  background-color: aliceblue;
+  justify-content: center;
+}
+
+.review-display {
   background-color: aliceblue;
 }

@@ -60,18 +60,40 @@ const Trilogy = (props) => {
   };
 
   return (
-    <div className="this">
+    <div
+      className="this"
+      style={{
+        display: "flex",
+        padding: 60,
+        margin: 50,
+        // flexWrap: "wrap",
+        // alignItems: "center",
+        // justifyContent: "center",
+      }}
+    >
       <h1>{trilogyId}</h1>
       <ul className="movieList">
         {movies.map((movie) => (
-          <div key={movie._id}>
+          <div
+            key={movie._id}
+            style={{
+              justifyContent: "center",
+              margin: 40,
+            }}
+          >
             <li>{movie.name}</li>
           </div>
         ))}
       </ul>
       <div className="review-display">
         {rev.map((review) => (
-          <div key={review._id}>
+          <div
+            key={review._id}
+            style={{
+              justifyContent: "center",
+              margin: 40,
+            }}
+          >
             "{review.comment}" - {review.creator}, rating: {review.rating}/5,{" "}
             {review._id}
             <button value={review} onClick={() => deleteReviewHandler(review)}>

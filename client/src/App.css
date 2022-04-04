@@ -5,9 +5,14 @@
  } */
 .body {
   background-color: aliceblue;
+  justify-content: center;
 }
 
 .this {
   width: 100px;
   height: 100px;
 }
+/* 
+.prequel {
+  justify-content: center;
+} */

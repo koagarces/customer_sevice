@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <main>
       <h1>STAR WARS TRILOGY REVIEW</h1>
-      <div>
+      <div className="routes">
         <NavLink to="/movies/trilogies/prequels" className="navigation">
           Prequel Trilogy
         </NavLink>
