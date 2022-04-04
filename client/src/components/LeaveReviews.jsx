@@ -39,7 +39,7 @@ const LeaveReview = (props) => {
       <input
         type="text"
         name="creator"
-        placeholder="Name"
+        placeholder="username"
         value={creator}
         onChange={(v) => setCreator(v.target.value)}
       />
@@ -48,7 +48,7 @@ const LeaveReview = (props) => {
         <input
           type="text"
           name="reviewsId"
-          placeholder="reviewsId"
+          placeholder="Your review id"
           value={reviewsId}
           onChange={(v) => setReviewsId(v.target.value)}
         />
