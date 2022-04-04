@@ -18,10 +18,10 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.post("/api/movies/review", reviewController.CreateReview);
 app.get("/api/movies/review", reviewController.GetReviews);
-app.delete("/api/movies/review/:id", reviewController.DeleteReview);
-app.put("/api/movies/review/:reviewId", reviewController.UpdateReview);
+app.delete("/api/movies/review/:reviewsId", reviewController.DeleteReview);
+app.put("/api/movies/review/:reviewsId", reviewController.UpdateReview);
 
-app.get("/api/movies/review/:reviewId", reviewController.getReviewsByReviewId);
+app.get("/api/movies/review/:reviewsId", reviewController.getReviewsByReviewId);
 app.get(
   "/api/movies/reviews/:trilogyId",
   reviewController.getReviewsByTrilogyId

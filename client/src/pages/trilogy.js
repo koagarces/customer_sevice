@@ -7,9 +7,7 @@ import { useParams } from "react-router-dom";
 import LeaveReview from "../components/LeaveReviews";
 
 const Trilogy = (props) => {
-  const [reviewId, setReviewId] = useState();
   const trilogyId = props.id;
-  const reviewsId = props.reviewsId;
   const [movies, setMovie] = useState([]);
   const [rev, setRev] = useState([]);
   const [createRev, setCreateRev] = useState([]);
@@ -48,17 +46,16 @@ const Trilogy = (props) => {
   };
 
   const submitHandlerUpdate = async (review) => {
-    review.reviewsId = reviewsId;
     console.log(review);
-    await axios.put(`${BASE_URL}/movies/review`, review);
+    await axios.put(`${BASE_URL}/movies/review/${review.reviewsId}`, review);
 
     await getMoviesByTrilogy();
   };
 
-  const onClickHandler2 = async (review) => {
+  const deleteReviewHandler = async (review) => {
     console.log(review);
     // review.trilogyId = trilogyId;
-    await axios.delete(`${BASE_URL}/movies/review/${review.target.value}`);
+    await axios.delete(`${BASE_URL}/movies/review/${review._id}`);
     await getMoviesByTrilogy();
   };
 
@@ -67,30 +64,25 @@ const Trilogy = (props) => {
       <h1>{trilogyId}</h1>
       <ul className="movieList">
         {movies.map((movie) => (
-          <div>
+          <div key={movie._id}>
             <li>{movie.name}</li>
           </div>
         ))}
       </ul>
       <div className="review-display">
         {rev.map((review) => (
-          <div>
+          <div key={review._id}>
             "{review.comment}" - {review.creator}, rating: {review.rating}/5,{" "}
-            {review.reviewsId}
-            <button
-              value={reviewsId}
-              onClick={(review) => onClickHandler2(review)}
-            >
+            {review._id}
+            <button value={review} onClick={() => deleteReviewHandler(review)}>
               Delete
             </button>
           </div>
         ))}
       </div>
       <div className="review-input-form">
-        <LeaveReview
-          submitHandler={submitHandlerPost}
-          submitHandler2={submitHandlerUpdate}
-        />
+        <LeaveReview type="submit" submitHandler={submitHandlerPost} />
+        <LeaveReview type="update" submitHandler={submitHandlerUpdate} />
       </div>
       <div className="">{/* <UpdateReview /> */}</div>
     </div>

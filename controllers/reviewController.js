@@ -14,8 +14,8 @@ const GetReviews = async (req, res) => {
 
 const DeleteReview = async (req, res) => {
   try {
-    console.log(req.params.id);
-    const trilogyId = req.params.id;
+    console.log("id to delete:", req.params.reviewsId);
+    const trilogyId = req.params.reviewsId;
     const deleted = await Review.findByIdAndDelete(trilogyId);
     if (deleted) {
       return res.status(200).send("Deleted Review");
@@ -28,13 +28,12 @@ const DeleteReview = async (req, res) => {
 
 const UpdateReview = async (req, res) => {
   try {
+    console.log("update review", req.body, req.params);
     const review = await Review.findByIdAndUpdate(
-      req.params.reviewId,
-      req.body,
-      {
-        new: true,
-      }
+      req.params.reviewsId,
+      req.body
     );
+
     res.json(review);
   } catch (error) {
     res.send(error.message);

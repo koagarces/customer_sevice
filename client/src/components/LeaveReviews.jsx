@@ -6,27 +6,21 @@ const LeaveReview = (props) => {
   const [creator, setCreator] = useState("");
   const [reviewsId, setReviewsId] = useState("");
 
+  const type = props.type;
+  const isSubmit = type === "submit";
+
   const onClickHandler = () => {
     props.submitHandler({
       comment,
       creator,
       rating,
-      reviewsId,
-    });
-  };
-
-  const onClickHandler3 = () => {
-    props.submitHandler2({
-      comment,
-      creator,
-      rating,
-      reviewsId,
+      ...(isSubmit ? {} : { reviewsId: reviewsId }),
     });
   };
 
   return (
     <div className="reviewTitle">
-      <h1>Leave A Review</h1>
+      <h1>{isSubmit ? "Leave" : "Update"} A Review</h1>
       {/* <form> */}
       <input
         type="text"
@@ -50,16 +44,17 @@ const LeaveReview = (props) => {
         onChange={(v) => setCreator(v.target.value)}
       />
 
-      <input
-        type="text"
-        name="reviewId"
-        placeholder="reviewId"
-        value={reviewsId}
-        onChange={(v) => setReviewsId(v.target.value)}
-      />
+      {!isSubmit && (
+        <input
+          type="text"
+          name="reviewsId"
+          placeholder="reviewsId"
+          value={reviewsId}
+          onChange={(v) => setReviewsId(v.target.value)}
+        />
+      )}
 
-      <button onClick={onClickHandler}>Submit</button>
-      <button onClick={onClickHandler3}>Update</button>
+      <button onClick={onClickHandler}>{isSubmit ? "Submit" : "Update"}</button>
 
       {/* </form> */}
     </div>
