@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../globals";
 import "../App.css";
-import { useParams } from "react-router-dom";
 import LeaveReview from "../components/LeaveReviews";
 import "./trilogy.css";
 const Trilogy = (props) => {
@@ -67,9 +66,6 @@ const Trilogy = (props) => {
         padding: 60,
         margin: 50,
         backgroundColor: "aliceblue",
-        // flexWrap: "wrap",
-        // alignItems: "center",
-        // justifyContent: "center",
       }}
     >
       <h1>{trilogyId}</h1>
