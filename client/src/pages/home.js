@@ -5,7 +5,12 @@ const Home = () => {
   return (
     <main>
       <h1>STAR WARS TRILOGY REVIEW</h1>
-      <div className="routes">
+      <div
+        className="routes"
+        style={{
+          justifyContent: "flex-start",
+        }}
+      >
         <NavLink to="/movies/trilogies/prequels" className="navigation">
           Prequel Trilogy
         </NavLink>
