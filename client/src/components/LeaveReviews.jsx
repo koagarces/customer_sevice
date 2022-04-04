@@ -21,7 +21,6 @@ const LeaveReview = (props) => {
   return (
     <div className="reviewTitle">
       <h1>{isSubmit ? "Leave" : "Update"} A Review</h1>
-      {/* <form> */}
       <input
         type="text"
         name="comment"
@@ -55,8 +54,6 @@ const LeaveReview = (props) => {
       )}
 
       <button onClick={onClickHandler}>{isSubmit ? "Submit" : "Update"}</button>
-
-      {/* </form> */}
     </div>
   );
 };
